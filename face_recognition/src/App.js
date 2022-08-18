@@ -1,23 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import Navigation from './Components/Navigation/Navigation'
+import Logo from './Components/Logo/Logo'
+import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm'
+import Rank from './Components/Rank/Rank'
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
+import { useCallback } from "react";
+import {BackgroundParticl} from './particle';
+
 
 function App() {
+  const particlesInit = useCallback(async (engine) => {
+      console.log(engine);
+      // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+      // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+      // starting from v2 you can add only the features you need reducing the bundle size
+
+      await loadFull(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async (container) => {
+      await console.log(container);
+  }, []);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Particles className='particles'
+            id="tsparticles"
+            init={particlesInit}
+            loaded={particlesLoaded}
+            options={BackgroundParticl}
+        />
+      <Navigation />
+      <Logo />
+      <Rank />
+      <ImageLinkForm />
+      {/* <FaceRecognition /> */}
     </div>
   );
 }
