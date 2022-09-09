@@ -1,15 +1,15 @@
 import React from "react";
  
 
-function Rank(){
+function Rank({name, entries}){
 
     return(
         <div>
             <div  className='f3 black'>
-                Pouria Your Rank is 
+               {name.charAt(0).toUpperCase()+name.slice(1)} Your Rank Is 
             </div>
             <div  className='f3 black'>
-                #5 
+                {entries}
             </div>    
         </div>
     );    

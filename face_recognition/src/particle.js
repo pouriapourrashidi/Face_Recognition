@@ -1,3 +1,7 @@
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
+import { Component, useCallback } from "react";
+
 export const BackgroundParticl =  {
     background: {
       color: {
@@ -29,10 +33,10 @@ export const BackgroundParticl =  {
   },
   particles: {
       color: {
-          value: "#f8ff94",
+          value: "#99004d",
       },
       links: {
-          color: "#f8ff94",
+          color: "#cc0066",
           distance: 150,
           enable: true,
           opacity: 0.5,
@@ -48,7 +52,7 @@ export const BackgroundParticl =  {
               default: "bounce",
           },
           random: false,
-          speed: 4,
+          speed: 1,
           straight: true,
       },
       number: {
@@ -65,8 +69,22 @@ export const BackgroundParticl =  {
           type: "triangle",
       },
       size: {
-          value: { min: 4, max: 7 },
+          value: { min: 1, max: 4 },
       },
   },
   detectRetina: true,
   };
+
+
+// export const particlesInit = async (engine) => {
+//     console.log(engine);
+//     // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+//     // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+//     // starting from v2 you can add only the features you need reducing the bundle size
+  
+//     await loadFull(engine);
+//   };
+  
+// export const particlesLoaded = async (container) => {
+//     await console.log(container);
+//   };
